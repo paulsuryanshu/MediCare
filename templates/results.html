@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-success text-white">
+                <h2 class="mb-0"><i class="bi-clipboard2-check"></i> Prediction Results</h2>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="bi-info-circle"></i> You reported {{ symptoms_reported|length }} symptoms
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="bi-graph-up-arrow"></i> Prediction Confidence</h5>
+                            </div>
+                            <div class="card-body">
+                                <img src="data:image/png;base64,{{ graph_image }}" alt="Prediction Graph" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0"><i class="bi-list-ul"></i> Reported Symptoms</h5>
+                            </div>
+                            <div class="card-body">
+                                <img src="data:image/png;base64,{{ symptoms_chart }}" alt="Symptoms Chart" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-warning">
+                        <h5 class="mb-0"><i class="bi-clipboard2-pulse"></i> Detailed Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-success mb-3">
+                                    <div class="card-header bg-success text-white">
+                                        <strong>Primary Prediction</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ prediction.primary_prediction.disease }}</h4>
+                                        <div class="progress mb-3">
+                                            <div class="progress-bar bg-success" 
+                                                 role="progressbar" 
+                                                 style="width: {{ prediction.primary_prediction.confidence * 100 }}%" 
+                                                 aria-valuenow="{{ prediction.primary_prediction.confidence * 100 }}" 
+                                                 aria-valuemin="0" 
+                                                 aria-valuemax="100">
+                                                {{ "%.1f"|format(prediction.primary_prediction.confidence * 100) }}%
+                                            </div>
+                                        </div>
+                                        <p class="card-text">
+                                            This is the most likely condition based on your symptoms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% if prediction.alternative_predictions %}
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-header bg-info text-white">
+                                        <strong>Alternative Possibilities</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            {% for alt in prediction.alternative_predictions %}
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                {{ alt.disease }}
+                                                <span class="badge bg-primary rounded-pill">
+                                                    {{ "%.1f"|format(alt.confidence * 100) }}%
+                                                </span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <h5><i class="bi-exclamation-triangle"></i> Important Disclaimer</h5>
+                    <p>
+                        This prediction is for informational purposes only and is not a substitute for professional 
+                        medical advice, diagnosis, or treatment. Always seek the advice of your physician or other 
+                        qualified health provider with any questions you may have regarding a medical condition.
+                    </p>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                    <a href="/" class="btn btn-primary btn-lg">
+                        <i class="bi-house"></i> Back to Home
+                    </a>
+                    <button class="btn btn-outline-primary btn-lg" onclick="window.print()">
+                        <i class="bi-printer"></i> Print Results
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0"><i class="bi-clipboard2-pulse"></i> Symptom Checker</h2>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+
+                <form method="POST" action="/predict">
+                    <div class="mb-4">
+                        <h5 class="mb-3"><i class="bi-search"></i> Search Symptoms</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="symptomSearch" placeholder="Type to search symptoms...">
+                            <button class="btn btn-outline-secondary" type="button" id="clearSearch">
+                                <i class="bi-x-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="mb-3"><i class="bi-list-check"></i> Select Symptoms</h5>
+                        <div class="symptom-list-container">
+                            <div class="row" id="symptomList">
+                                {% for symptom in symptoms %}
+                                <div class="col-md-4 mb-2 symptom-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="symptoms" 
+                                               value="{{ symptom }}" id="symptom-{{ loop.index }}">
+                                        <label class="form-check-label" for="symptom-{{ loop.index }}">
+                                            {{ symptom.replace('_', ' ') | title }}
+                                        </label>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="mb-3"><i class="bi-chat-square-text"></i> Additional Symptoms</h5>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="custom_symptoms" name="custom_symptoms" 
+                                      placeholder="Enter other symptoms separated by commas" style="height: 100px"></textarea>
+                            <label for="custom_symptoms">Enter other symptoms separated by commas</label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi-graph-up"></i> Get Prediction
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow mt-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi-info-circle"></i> About This Tool</h5>
+                <p class="card-text">
+                    Our AI-powered disease prediction system analyzes your symptoms to provide potential diagnoses.
+                    Please note this is for informational purposes only and not a substitute for professional medical advice.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('symptomSearch');
+    const clearBtn = document.getElementById('clearSearch');
+    const symptomItems = document.querySelectorAll('.symptom-item');
+    
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        symptomItems.forEach(item => {
+            const label = item.querySelector('label').textContent.toLowerCase();
+            if (label.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+    
+    // Clear search
+    clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        symptomItems.forEach(item => {
+            item.style.display = 'block';
+        });
+    });
+});
+</script>
+{% endblock %}
