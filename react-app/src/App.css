@@ -1,0 +1,1025 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2C7CD1;
+  --secondary-color: #38B2AC;
+  --text-color: #2D3748;
+  --light-bg: #F7FAFC;
+  --white: #FFFFFF;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--white);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand a {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero section */
+.hero-section {
+  background: linear-gradient(rgba(44, 124, 209, 0.1), rgba(56, 178, 172, 0.1));
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Features section */
+.features-section {
+  padding: 4rem 2rem;
+  background-color: var(--white);
+}
+
+.features-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 2rem;
+  background-color: var(--light-bg);
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.feature-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* How it works section */
+.how-it-works {
+  padding: 4rem 2rem;
+  background-color: var(--light-bg);
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+  padding: 2rem;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 1.5rem;
+  background-color: var(--text-color);
+  color: var(--white);
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .features-grid,
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add these styles to your existing App.css */
+
+/* Predict Page Container */
+.predict-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.predict-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.predict-header h1 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.predict-header p {
+  color: #666;
+}
+
+/* Input Section */
+.input-section {
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  margin-bottom: 1rem;
+}
+
+.search-input,
+.custom-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus,
+.custom-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.custom-symptom-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.add-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #319795;
+}
+
+/* Selected Symptoms */
+.selected-symptoms {
+  margin-bottom: 2rem;
+}
+
+.selected-symptoms h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.selected-symptoms-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.symptom-tag {
+  display: flex;
+  align-items: center;
+  background-color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.remove-symptom {
+  background: none;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.remove-symptom:hover {
+  color: #e53e3e;
+}
+
+/* Symptoms Grid */
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.symptom-button {
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.symptom-button:hover {
+  border-color: var(--primary-color);
+}
+
+.symptom-button.selected {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Predict Button */
+.predict-action {
+  text-align: center;
+}
+
+.predict-button {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.predict-button:hover {
+  background-color: #2563eb;
+}
+
+.predict-button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+/* Continuing the responsive design styles */
+@media (max-width: 768px) {
+  .predict-container {
+    padding: 1rem;
+  }
+
+  .symptoms-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .custom-symptom-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .predict-button {
+    width: 100%;
+  }
+
+  .symptom-tag {
+    font-size: 0.8rem;
+  }
+}
+
+/* Loading State */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error and Success Messages */
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  border: 1px solid #FCA5A5;
+}
+
+.success-message {
+  background-color: #DCFCE7;
+  color: #16A34A;
+  border: 1px solid #86EFAC;
+}
+
+/* Tooltip */
+.symptom-button {
+  position: relative;
+}
+
+.symptom-button:hover::after {
+  content: "Click to select";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+/* Search Results Highlight */
+.highlight {
+  background-color: #FEF3C7;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Custom Scrollbar */
+.symptoms-grid {
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #E2E8F0;
+}
+
+.symptoms-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.symptoms-grid::-webkit-scrollbar-track {
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+.symptoms-grid::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+}
+
+/* Prediction Result Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+/* Prediction Results */
+.prediction-results {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+}
+
+.prediction-results h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.prediction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.prediction-item:last-child {
+  border-bottom: none;
+}
+
+.prediction-disease {
+  font-weight: 500;
+}
+
+.prediction-probability {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Additional Helper Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray {
+  color: #666;
+}
+
+/* Accessibility Focus Styles */
+.symptom-button:focus,
+.search-input:focus,
+.custom-input:focus,
+.add-button:focus,
+.predict-button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .predict-container {
+    padding: 0;
+  }
+
+  .input-section,
+  .symptoms-grid,
+  .add-button,
+  .predict-button {
+    display: none;
+  }
+
+  .selected-symptoms {
+    border: 1px solid #000;
+    padding: 1rem;
+  }
+
+  .prediction-results {
+    break-inside: avoid;
+  }
+}
+
+/* Result Page Styles */
+.result-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.result-header h2 {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-summary {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Symptoms Section */
+.symptoms-section {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.symptoms-list {
+  margin-top: 1rem;
+}
+
+.symptom-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.symptom-bullet {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Prediction Section */
+.prediction-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.primary-prediction {
+  background-color: #f0f9ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.prediction-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-card.primary {
+  border: 2px solid var(--primary-color);
+}
+
+.disease-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.confidence-score {
+  position: relative;
+  background-color: #e2e8f0;
+  border-radius: 20px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  transition: width 1s ease-in-out;
+}
+
+.confidence-value {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 1;
+}
+
+.alternatives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prediction-card.alternative {
+  border: 1px solid #e2e8f0;
+}
+
+/* Visualization Section */
+.visualization-section {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.chart-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.result-chart {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Empty State */
+.result-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.result-empty-state h2 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.result-empty-state p {
+  color: #666;
+}
+
+/* Result Section Headers */
+.result-section h3 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.result-section h4 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .result-container {
+    padding: 1rem;
+  }
+
+  .visualization-section {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .result-container {
+    padding: 0;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prediction-card {
+    break-inside: avoid;
+  }
+
+  .visualization-section {
+    break-before: page;
+  }
+
+  .result-chart {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Medical Information Section */
+.medical-info-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+}
+
+.info-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.info-card.description {
+  margin-bottom: 2rem;
+}
+
+.info-card.description p {
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.info-card h4 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.info-tag {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.info-card.status {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+.status-item {
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.status-badge.common {
+  background-color: #C6F6D5;
+  color: #2F855A;
+}
+
+.status-badge.moderate {
+  background-color: #FEEBC8;
+  color: #C05621;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .medical-info-section {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card.status {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Print styles for medical information */
+@media print {
+  .medical-info-section {
+    break-inside: avoid;
+    background-color: white;
+  }
+
+  .info-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+
+  .info-tag {
+    border: 1px solid #e2e8f0;
+  }
+}
