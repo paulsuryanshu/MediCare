@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <nav className="navbar">
         <div className="nav-brand">
-          <Link to="/">Disease Predictor</Link>
+          <Link to="/">Medi Care</Link>
         </div>
         <div className="nav-links">
           <Link to="/">Home</Link>
